@@ -5,16 +5,20 @@ function App() {
 
   return (
     <>
-      <Form>
-      <Form.Group className="mb-3">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="name@example.com" />
-      </Form.Group>
-      <Form.Group className="mb-3" type="password">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password"  />
-      </Form.Group>
-    </Form>
+      <div id="root"></div>
+        <div class="LogInForm">
+          <label class="Title">Inicio de sesion</label>
+        
+          <label>Correo electronico:</label>
+          <input class="TextBox" type="text"/>
+          <label>Contraseña:</label>
+          <input class="TextBox" type="password"/>
+          
+          <div>
+            <button>Iniciar sesion</button>
+            <button>olvide contraseña</button>
+          </div>
+        </div>
     </>
   )
 }
