@@ -12,18 +12,22 @@ body {
   display: flex;
   justify-content: center;
   align-content: center;
-  background-color:ghostwhite;
+  background-image: url("img/Background.gif");
+  background-position: center;  
+  background-size: cover;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.LogInForm {    
+.LogInFormContainer {    
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 600px;
   height: 600px;
-  background-color:white;
+  background-color:black;
   border-radius: 1rem;
+  padding: 32px;
+  opacity: 0.8;
 }
 
 .Title {
@@ -34,6 +38,17 @@ body {
 
 .TextBox {
   font-size: 1.5rem;
-  border-radius: 0.5rem;
+  color: white;
+  background-color: transparent;
+  border-width: 0 0 5px 0;
+  border-color: cornflowerblue;
   padding: var(--Padding);
+}
+
+.Button {
+  font-size: 1.5rem;
+}
+
+label {
+  color: white;
 }

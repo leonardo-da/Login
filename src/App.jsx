@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div id="root"></div>
-        <div class="LogInForm">
+        <div class="LogInFormContainer">
           <label class="Title">Inicio de sesion</label>
         
           <label>Correo electronico:</label>
@@ -14,10 +14,8 @@ function App() {
           <label>Contraseña:</label>
           <input class="TextBox" type="password"/>
           
-          <div>
-            <button>Iniciar sesion</button>
-            <button>olvide contraseña</button>
-          </div>
+          <button Class="Button">Iniciar sesion</button>
+          <button Class="Button">olvide contraseña</button>
         </div>
     </>
   )
