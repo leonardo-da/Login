@@ -18,22 +18,48 @@ body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.LogInFormContainer {    
+.LogInContainer {    
+  display: grid;
+  grid-template-rows: repeat(3fr);
+  justify-content: center;
+  width: 80vw;
+  height: 90vh;
+  max-width: 450px;
+  max-height: 550px;
+  background-color:black;
+  border: 2px solid white;
+  border-radius: 1rem;
+  opacity: 0.7;
+}
+
+.LogInContainer div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 600px;
-  height: 600px;
-  background-color:black;
-  border-radius: 1rem;
-  padding: 32px;
-  opacity: 0.8;
+  justify-content: center;
+  /* border: 1px solid red; */
+}
+
+.LogInFormContainer {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.FormButtonsContainer {
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
 }
 
 .Title {
+  grid-row: 1;
   font-size: 3rem;    
   color: cornflowerblue;
-  margin: 0.5rem;
+}
+
+.LogInFormContainer label {
+  font-size: 1.3rem;
+  color: gray;
 }
 
 .TextBox {
@@ -43,12 +69,26 @@ body {
   border-width: 0 0 5px 0;
   border-color: cornflowerblue;
   padding: var(--Padding);
+  margin: 0 0 2rem 0;
+}
+
+.TextBox:hover {
+  border-color:ghostwhite;
+}
+
+.TextBox:focus {
+  outline: none;
 }
 
 .Button {
   font-size: 1.5rem;
+  background-color: cornflowerblue;
+  margin: 0 0 1rem 0;
 }
 
-label {
-  color: white;
+.TextButton {
+  font-size: 1.5rem;
+  background-color: transparent;
+  color:cornflowerblue;
+  padding: 0;
 }

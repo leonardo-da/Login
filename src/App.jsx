@@ -6,16 +6,21 @@ function App() {
   return (
     <>
       <div id="root"></div>
-        <div class="LogInFormContainer">
-          <label class="Title">Inicio de sesion</label>
-        
-          <label>Correo electronico:</label>
-          <input class="TextBox" type="text"/>
-          <label>Contraseña:</label>
-          <input class="TextBox" type="password"/>
-          
-          <button Class="Button">Iniciar sesion</button>
-          <button Class="Button">olvide contraseña</button>
+        <div class="LogInContainer">
+          <div className="TitleContainer">
+            <label class="Title">Inicio de sesion</label>
+          </div>
+              
+          <div class="LogInFormContainer">
+            
+            <input class="TextBox" type="text" placeholder="Correo electronico"/>
+            <input class="TextBox" type="password" placeholder="Contraseña"/>
+          </div>
+            
+          <div className="FormButtonsContainer">
+            <button Class="Button">Iniciar sesion</button>
+            <button Class="TextButton">olvide contraseña</button>
+          </div>
         </div>
     </>
   )
