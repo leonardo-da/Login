@@ -1,5 +1,6 @@
 import './App.css'
-import Accountimg from "./img/Account.svg"
+import ImgAccount from "./img/Account.svg";
+import ImgPassword from "./img/Password.svg";
 import { useState } from 'react';
 
 function App() {
@@ -13,19 +14,28 @@ function App() {
   return (
     <>
       <div id="root"></div>
-        <div className="LogInContainer">
-          <div className="TitleContainer">
+        <div className="LogIn-Container">
+          <div className="Title-Container, Centered-Container">
             <label className="Title">Inicio de sesion</label>
           </div>
               
-          <form className="LogInFormContainer" onSubmit={handleSubmit}>
-            <img className="aimg" src={Accountimg} alt="Accountimg" />
-            <input className="TextBox" type="text" placeholder="Correo electronico" name="email" value={email}  onChange={(event) => setEmail(event.target.value)}/>
-            <input className="TextBox" type="password" placeholder="Contraseña" name="password"  value={password} onChange={(event) => setPassword(event.target.value)}/>
+          <form className="LogInForm-Container, Centered-Container" onSubmit={handleSubmit}>
+            {/* Account textbox */}
+            <div class="TextBox-Container">
+              <img className="TextBox-Image" src={ImgAccount} alt="ImgAccount"/>
+              <input className="TextBox" type="text" placeholder="Correo electronico" name="email" value={email}  onChange={(event) => setEmail(event.target.value)}/>
+            </div>
+            
+            {/* Password textbox */}
+            <div className="TextBox-Container">
+              <img className="TextBox-Image" src={ImgPassword} alt="ImgPassword"/>
+              <input className="TextBox" type="password" placeholder="Contraseña" name="password"  value={password} onChange={(event) => setPassword(event.target.value)}/>
+            </div>
+            
             <button className="Button" type="submit">Iniciar sesion</button>
           </form>
             
-          <div className="FormButtonsContainer">
+          <div className="FormButtons-Container, Centered-Container">
             <button className="TextButton">olvide contraseña</button>
           </div>
         </div>
