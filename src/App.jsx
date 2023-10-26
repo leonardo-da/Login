@@ -9,7 +9,11 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password);
+    if(!email || !password){
+      console.log("te falta un dato galan")
+    }else{ 
+      console.log("Informacion enviada")
+  }
   };
   return (
     <>
@@ -21,11 +25,10 @@ function App() {
               
           <form className="LogInForm-Container, Centered-Container" onSubmit={handleSubmit}>
             {/* Account textbox */}
-            <div class="TextBox-Container">
+            <div className="TextBox-Container">
               <img className="TextBox-Image" src={ImgAccount} alt="ImgAccount"/>
-              <input className="TextBox" type="text" placeholder="Correo electronico" name="email" value={email}  onChange={(event) => setEmail(event.target.value)}/>
+              <input className="TextBox" type="email" placeholder="Correo electronico" name="email" value={email}  onChange={(event) => setEmail(event.target.value)}/>
             </div>
-            
             {/* Password textbox */}
             <div className="TextBox-Container">
               <img className="TextBox-Image" src={ImgPassword} alt="ImgPassword"/>
