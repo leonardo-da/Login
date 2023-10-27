@@ -2,8 +2,12 @@ import './App.css'
 import ImgAccount from "./img/Account.svg";
 import ImgPassword from "./img/Password.svg";
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import Home from "./pages/home"
 
 function App() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -35,11 +39,11 @@ function App() {
               <input className="TextBox" type="password" placeholder="Contraseña" name="password"  value={password} onChange={(event) => setPassword(event.target.value)}/>
             </div>
             
-            <button className="Button" type="submit">Iniciar sesion</button>
+            <button className="Button" type="submit" >Iniciar sesion</button>
           </form>
             
           <div className="FormButtons-Container, Centered-Container">
-            <button className="TextButton">olvide contraseña</button>
+            <button className="TextButton" onClick={() => navigate("/home")}>olvide contraseña</button>
           </div>
         </div>
     </>
