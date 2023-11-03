@@ -1,0 +1,42 @@
+//Class to center elements of a container
+.Centered-Container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.TextBox {
+    font-size: 1.5rem;
+    color: white;
+    background-color: transparent;
+    border-width: 0 0 3px 0;
+    border-color: $PrimaryColor;
+    padding: var(--Padding);
+
+    &:hover {
+        border-color:var(--SecondaryColor);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.Button {
+    font-size: 1.5rem;
+    background-color: $PrimaryColor;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: $BorderRadius;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $OnPrimaryColor;
+    }
+
+    &:active {
+        transform: translateY(2px);
+    }
+}
