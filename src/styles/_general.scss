@@ -14,13 +14,20 @@
     border-width: 0 0 3px 0;
     border-color: $PrimaryColor;
     padding: var(--Padding);
+    user-select: contain;
+    transition: 0.3s;
 
     &:hover {
-        border-color:var(--SecondaryColor);
+        border-color: white;
+        transition: 0s;
     }
 
     &:focus {
         outline: none;
+    }
+
+    &::-webkit-datalist-option {
+        background-color: transparent;
     }
 }
 
@@ -30,13 +37,27 @@
     padding: 0.5rem 2rem;
     border: none;
     border-radius: $BorderRadius;
+    user-select: none;
     cursor: pointer;
+    transition: 0.3s;
 
     &:hover {
         background-color: $OnPrimaryColor;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        transition: 0s;
     }
 
     &:active {
         transform: translateY(2px);
+    }
+}
+
+
+.CheckBox-Container {
+    label {
+        color: $DryWhite;
+        font-size: 1.5rem;
+        margin-left: 8px;
+        user-select: none;
     }
 }
