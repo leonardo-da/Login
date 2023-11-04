@@ -11,7 +11,7 @@ export default function Login() {
 
         <div className="Form-Container">
             <div className="CarouselForm-Container">
-                
+                <LogInForm/>
                 <RegisterForm/>
             </div>
         </div>

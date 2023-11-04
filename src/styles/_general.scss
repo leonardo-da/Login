@@ -7,11 +7,12 @@
     text-align: center;
 }
 
+//Text box of only line styles
 .TextBox {
     font-size: 1.5rem;
     color: white;
     background-color: transparent;
-    border-width: 0 0 3px 0;
+    border-width: 0 0 2px 0;
     border-color: $PrimaryColor;
     padding: var(--Padding);
     user-select: contain;
@@ -43,7 +44,7 @@
 
     &:hover {
         background-color: $OnPrimaryColor;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 20px $GlowFx;
         transition: 0s;
     }
 
@@ -52,7 +53,6 @@
     }
 }
 
-
 .CheckBox-Container {
     label {
         color: $DryWhite;
@@ -60,4 +60,18 @@
         margin-left: 8px;
         user-select: none;
     }
+}
+
+//Class to stack the form textboxes
+.Fields-Container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+h1 {
+    font-size: 3rem;    
+    text-align: center;
+    color: $PrimaryColor;
+    user-select: none;
 }
