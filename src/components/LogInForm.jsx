@@ -49,13 +49,12 @@ export default function LogInForm() {
 
                 <a onClick={() => navigate("/home")}>olvide contraseña</a>
             </div>
+            {/* Submit button */}
+            <div className="LogInButtons-Container Centered-Container">
+                <button className="Button" type="submit">Iniciar sesion</button>
+                <a>Crear una cuenta</a>
+            </div>
         </form>
-            
-        {/* Submit button */}
-        <div className="LogInButtons-Container Centered-Container">
-            <button className="Button" type="submit">Iniciar sesion</button>
-            <a>Crear una cuenta</a>
-        </div>
     </div>
   )
 }
