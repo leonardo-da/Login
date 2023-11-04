@@ -35,13 +35,13 @@ export default function Login() {
                 {/* Account textbox */}
                 <div className="TextBox-Container">
                     <img src={ImgAccount} alt="ImgAccount"/>
-                    <input className="TextBox" type="email" placeholder="Correo electronico" name="email" /* value={email}  onChange={(event) => setEmail(event.target.value)}*/ />
+                    <input className="TextBox" type="email" placeholder="Correo electronico" name="email" value={email}  onChange={(event) => setEmail(event.target.value)} />
                 </div>
 
                 {/* Password textbox */}
                 <div className="TextBox-Container">
                     <img src={ImgPassword} alt="ImgPassword"/>
-                    <input className="TextBox" type="password" placeholder="Contraseña" name="password"  /*value={password} onChange={(event) => setPassword(event.target.value)}*/ />
+                    <input className="TextBox" type="password" placeholder="Contraseña" name="password" value={password} onChange={(event) => setPassword(event.target.value)} />
                 </div>
                 
                 <button className="Button" type="submit" >Iniciar sesion</button>
