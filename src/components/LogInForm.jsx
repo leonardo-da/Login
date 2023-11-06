@@ -1,8 +1,10 @@
-import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import ImgAccount from "../img/Account.svg";
 import ImgPassword from "../img/Password.svg";
+import {db} from '../../src/assets/Config/firestore';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { useEffect } from 'react';
 
 export default function LogInForm() 
 {
@@ -12,9 +14,9 @@ export default function LogInForm()
     const [password, setPassword] = useState('');
 
     //Check the email and password meets the requirements
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         if(!email || !password) {
             console.log("te falta un dato galan");        
 
@@ -22,9 +24,18 @@ export default function LogInForm()
             Error.textContent = "¡te falta un dato galan!";
         } 
         else { 
-            console.log("Informacion enviada")
+            const q = query(collection(db, "USER"), where("Email", "==", email));
+
+            const querySnapshot = await getDocs(q);
+            querySnapshot.forEach((doc) => {
+            console.log(doc.id, " => ", doc.data());
+            });
         }
     };
+
+    useEffect(() =>{
+        handleSubmit()
+    },[])
 
     //Get size of form and displace the carousel to register form
     function CreateAccount() {
@@ -44,20 +55,20 @@ export default function LogInForm()
                 {/* Account textbox */}
                 <div className="TextBox-Container">
                     <img src={ImgAccount} alt="ImgAccount"/>
-                    <input className="TextBox" type="email" placeholder="Correo electronico" name="email" value={email}  onChange={(event) => setEmail(event.target.value)}/>
+                    <input className="TextBox" type="email" placeholder="Correo electronico" name="email" value={email}  onChange={(e) => setEmail(e.target.value)}/>
                 </div>
 
                 {/* Password textbox */}
                 <div className="TextBox-Container">
                     <img src={ImgPassword} alt="ImgPassword"/>
-                    <input className="TextBox" type="password" placeholder="Contraseña" name="password" value={password} onChange={(event) => setPassword(event.target.value)}/>
+                    <input className="TextBox" type="password" placeholder="Contraseña" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 
                 {/* Password options */}
                 <div className="Password-Options">
                     <div className="CheckBox-Container">
                         <input id="RenemberPasword-Checkbox" type="checkbox"/>
-                        <label for="RenemberPasword-Checkbox">Recordar</label>
+                        <label htmlFor="RenemberPasword-Checkbox">Recordar</label>
                     </div>
 
                     <a onClick={() => navigate("/home")}>olvide contraseña</a>
