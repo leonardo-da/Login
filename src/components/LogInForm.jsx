@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ImgAccount from "../img/Account.svg";
 import ImgPassword from "../img/Password.svg";
 import {db} from '../../src/assets/Config/firestore';
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, doc } from "firebase/firestore";
 import { useEffect } from 'react';
 
 export default function LogInForm() 
@@ -24,18 +24,25 @@ export default function LogInForm()
             Error.textContent = "¡te falta un dato galan!";
         } 
         else { 
-            const q = query(collection(db, "USER"), where("Email", "==", email));
-
-            const querySnapshot = await getDocs(q);
+            const q = query(collection(db, "USER"), where("Email", "==", email), where("Password", "==", password));
+            const querySnapshot = await getDocs(q)
             querySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
-            });
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                if(doc.id, " => ", doc.data()){
+                    console.log("si")
+                    console.log(doc.id, " => ", doc.data());
+                }else{
+                    console.log("NO")
+                    console.log(doc.id, " => ", doc.data());
+                }
+              });
+            
+            
+
+            
         }
     };
-
-    useEffect(() =>{
-        handleSubmit()
-    },[])
 
     //Get size of form and displace the carousel to register form
     function CreateAccount() {
