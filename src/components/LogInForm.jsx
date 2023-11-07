@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ImgAccount from "../img/Account.svg";
 import ImgPassword from "../img/Password.svg";
 import {db} from '../../src/assets/Config/firestore';
-import { collection, query, where, getDocs, doc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
 import { useEffect } from 'react';
 
 export default function LogInForm() 
@@ -24,23 +24,21 @@ export default function LogInForm()
             Error.textContent = "¡te falta un dato galan!";
         } 
         else { 
-            const q = query(collection(db, "USER"), where("Email", "==", email), where("Password", "==", password));
-            const querySnapshot = await getDocs(q)
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
-                if(doc.id, " => ", doc.data()){
-                    console.log("si")
-                    console.log(doc.id, " => ", doc.data());
-                }else{
-                    console.log("NO")
-                    console.log(doc.id, " => ", doc.data());
-                }
-              });
+            const q = query(collection(db, "USER"), where("Email","==",email),where("Password","==",password))
+            const querySnapshot = await getDocs(q); //lo que dijo javier
             
-            
-
-            
+            if(querySnapshot.docs.length === 0)
+            {
+                const Error = document.querySelector(".ErrorMessage");
+            Error.textContent = "¡no mames tas mal wey!";
+                console.log("no mames")
+            }
+            else
+            {
+                const Error = document.querySelector(".ErrorMessage");
+                Error.textContent = "¡a prro si le saves!";
+                console.log("simona")
+            }
         }
     };
 
