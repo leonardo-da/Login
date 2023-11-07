@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ImgAccount from "../img/Account.svg";
 import ImgPassword from "../img/Password.svg";
 import {db} from '../../src/assets/Config/firestore';
-import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
-import { useEffect } from 'react';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 export default function LogInForm() 
 {
@@ -38,6 +37,7 @@ export default function LogInForm()
                 const Error = document.querySelector(".ErrorMessage");
                 Error.textContent = "¡a prro si le saves!";
                 console.log("simona")
+                navigate("/home")
             }
         }
     };
