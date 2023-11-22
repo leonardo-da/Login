@@ -53,13 +53,11 @@
     }
 }
 
-.CheckBox-Container {
-    label {
-        color: $DryWhite;
-        font-size: 1.5rem;
-        margin-left: 8px;
-        user-select: none;
-    }
+label {
+    color: $DryWhite;
+    font-size: 1.5rem;
+    margin-left: 8px;
+    user-select: none;
 }
 
 //Class to stack the form textboxes
