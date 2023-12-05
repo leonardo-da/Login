@@ -36,7 +36,7 @@ export default function RegisterForm({ DisplaceToForm }) {
             }
             else
             {
-                SetErrorMessage("ya registraste este correo pinche pendejo");
+                SetErrorMessage("ya esta registrado ese correo pinche pendejo");
             }
         }
             
