@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { doc, setDoc, addDoc,collection } from "firebase/firestore";
+import { addDoc,collection,query,where,getDocs } from "firebase/firestore";
 import {db} from '../../src/assets/Config/firestore';
 
 export default function RegisterForm({ DisplaceToForm }) {
@@ -20,15 +20,26 @@ export default function RegisterForm({ DisplaceToForm }) {
         }
         else
         {
-            const docRef = await addDoc(collection(db, "USER"), {
-                Password: password,
-                Name: name,
-                Email: email,
-                Lastname: lastname
-              });
+            const q = query(collection(db, "USER"), where("Email","==",email))
+            const querySnapshot = await getDocs(q);
 
-              console.log("Document written with ID: ", docRef.id);
+            if (querySnapshot.docs.length === 0)
+            {
+                const docRef = await addDoc(collection(db, "USER"), {
+                    Password: password,
+                    Name: name,
+                    Email: email,
+                    Lastname: lastname
+                  });
+    
+                  console.log("Document written with ID: ", docRef.id);
+            }
+            else
+            {
+                SetErrorMessage("ya registraste este correo pinche pendejo");
+            }
         }
+            
     }
 
     //HTML section
